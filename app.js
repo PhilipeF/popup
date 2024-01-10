@@ -6,6 +6,13 @@ button.addEventListener('click', () => {
 })
 
 popup.addEventListener('click', event => {
-    const classNameOfClickedElement = event.target.classList
-    popup.style.display = 'none'
+    const classNameOfClickedElement = event.target.classList[0]
+    const classNames = ['popup-close', 'popup-wrapper', 'popup-link']
+
+    const shouldClosedPopup = classNames.some(className =>
+        className === classNameOfClickedElement)
+
+    if (shouldClosedPopup) {
+        popup.style.display = 'none'
+    }
 })
